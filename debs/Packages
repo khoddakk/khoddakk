@@ -1,0 +1,16 @@
+Package: com.khoddakk.myfirsttweak
+Version: 0.0.1-1+debug
+Architecture: iphoneos-arm
+Maintainer: khoddakk
+Installed-Size: 220
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.3)
+Filename: debs/com.khoddakk.myfirsttweak_0.0.1-1+debug_iphoneos-arm.deb
+Size: 5756
+MD5sum: d6a3f9e7fd6a0f5111a44886c9adf89c
+SHA1: 0fb5f62339a70ce05884af8a4b9f7b891fdaaa40
+SHA256: 1c6de668fecb4f3887b1fa50e8e09d18380a68243717b1d662dd501921ed6c5c
+Section: Tweaks
+Description: An awesome MobileSubstrate tweak!
+Author: khoddakk
+Name: myfirsttweak
+

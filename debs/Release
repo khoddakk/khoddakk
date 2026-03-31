@@ -1,0 +1,6 @@
+Origin: khoddakk Repo
+Label: khoddakk Repo
+Suite: stable
+Version: 1.0
+Architecture: iphoneos-arm
+Description: My personal tweak repo
