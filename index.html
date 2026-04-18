@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awuku Michael | Web Designer</title>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', function() {
+  navLinks.classList.toggle('show-mobile');
+  // Change ☰ to ✕ when open
+  if (navLinks.classList.contains('show-mobile')) {
+    menuBtn.textContent = '✕';
+  } else {
+    menuBtn.textContent = '☰';
+  }
+});
+
+// 2. COLOR CHANGER - JS can change CSS after page loads
+const colorBtn = document.getElementById('colorBtn');
+const colors = ['#e11d48', '#059669', '#7c3aed', '#ea580c'];
+let colorIndex = 0;
+
+colorBtn.addEventListener('click', function() {
+  // Change the main color of the whole site
+  document.documentElement.style.setProperty('--primary', colors[colorIndex]);
+  colorIndex = (colorIndex + 1) % colors.length;
+
+  // Change button text too
+  colorBtn.textContent = 'Color Changed!';
+  setTimeout(() => {
+    colorBtn.textContent = 'Change My Color';
+  }, 1000);
+});
+
+// 3. CLICK COUNTER - JS remembers things
+let count = 0;
+const clickCount = document.getElementById('clickCount');
+
+colorBtn.addEventListener('click', function() {
+  count = count + 1;
+  clickCount.textContent = count;
+});
+
+// 4. SMOOTH SCROLL - JS makes page feel fancy
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({ behavior: 'smooth' });
+    // Close mobile menu after clicking
+    navLinks.classList.remove('show-mobile');
+    menuBtn.textContent = '☰';
+  });
+});
+
+  </script>
+  <style>
+    /* RESET + BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fafafa;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    /* HEADER */
+    header {
+      background: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2563eb;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    
+    /* HERO */
+    .hero {
+      padding: 6rem 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero h1 span {
+      color: #2563eb;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: #666;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .btn:hover {
+      background: #1d4ed8;
+    }
+    
+    /* SERVICES */
+    .services {
+      padding: 4rem 0;
+      background: #fff;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .card {
+      background: #fafafa;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+    
+    .card h3 {
+      margin: 1rem 0;
+      font-size: 1.3rem;
+    }
+    
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .nav-links {
+        display: none; /* You can add a hamburger menu later with JS */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">KHODDAKK</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>I Design Websites That <span>Actually Convert</span></h1>
+        <p>HTML & CSS specialist based in Accra. I help small businesses look pro online without the tech headache.</p>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title">What I Do</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>🚀 Landing Pages</h3>
+            <p>Fast, mobile-first pages that turn visitors into WhatsApp messages.</p>
+          </div>
+          <div class="card">
+            <h3>🎨 PSD to HTML</h3>
+            <p>Got a design from your graphics guy? I’ll code it pixel-perfect.</p>
+          </div>
+          <div class="card">
+            <h3>📧 Email Templates</h3>
+            <p>HTML emails that don’t break in Gmail or Outlook. Yes, it’s hard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>© 2026 Michael A. | Built with HTML & CSS | WhatsApp: +233 25 780 8441</p>
+    </div>
+  </footer>
+</body>
+</html>
+
